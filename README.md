@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/creative-agency-singlepage-html-csssass-js-DqPnnHL1JF](https://www.frontendmentor.io/solutions/creative-agency-singlepage-html-csssass-js-DqPnnHL1JF)
+- Live Site URL: [https://p4bloxx.github.io/Creative-agency-single-page/](https://p4bloxx.github.io/Creative-agency-single-page/)
 
 ## My process
 
