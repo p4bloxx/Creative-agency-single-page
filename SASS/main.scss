@@ -1,0 +1,517 @@
+@use 'variables' as *;
+
+//Component
+.head-container{
+  position: relative;
+  @include flex-row-between;
+  padding: $fs-40 $fs-24;
+
+  @media (min-width: 767px) {
+    &{
+      padding: 3.5625rem $fs-40;
+    }
+    .red-section{
+      display: block;
+      position: absolute;
+      inset: 0 0 0 40%;
+      background-color: $red;
+      z-index: 1;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    &{
+      padding-inline: 10.3125rem;
+    }
+
+    .red-section{
+      inset: 0 0 0 50%;
+    }
+  }
+  
+  .primary-nav{
+    @include flex-row;
+    background: none;
+    gap: 1.75rem;
+    z-index: 2;
+      & ul{
+        @include flex-row;
+        gap: $fs-20;
+        color: $white;
+      }
+
+      @media (max-width: 767px) {
+        &{
+          position: fixed;
+          top: 6.875rem;
+          right: $fs-24;
+          padding: $fs-32 $fs-24 1.75rem;
+          @include flex-column;
+          gap: $fs-24;
+          transition: all 0.3s ease;
+          transform: translateY(-200%);
+          background: $bg-black;
+            & ul{
+              @include flex-column;
+              gap: $fs-24;
+            }
+            
+            & ul li{
+              color: $white;
+            }
+        }
+    
+      }
+
+      @media (min-width: 1200px) {
+        &{
+          gap: 2.9375rem;
+          & ul{
+            gap: $fs-32;
+          }
+
+          & ul li{
+            transition: all 0.2s linear;
+            cursor: pointer;
+              &:hover{
+                font-weight: $fw-bld;
+              }
+          }
+        }
+      }
+  }
+  
+}
+
+//Menu open (only mobile)
+.primary-nav[data-active="true"]{
+  transform: none;
+  z-index: 10;
+}
+
+//Hero section
+.hero-section{
+  position: relative;
+
+  .hero-content{
+    padding: 3.5rem $fs-24 6rem;
+      & h1 span{
+        display: block;
+      }
+      & p{
+        padding-block: $fs-15 $fs-40;
+      }
+  }
+
+  @media (min-width: 767px) {
+    .hero-img{
+      position: absolute;
+      inset: 0;
+      background: url('../ASSETS/Images/tablet/image-hero.jpg') no-repeat center right;
+      background-size: contain;
+      height: 100%;
+    }
+
+    .hero-content{
+      position: relative;
+      z-index: 1;
+      padding: 4.8125rem $fs-40 9.375rem;
+        & h1{
+          width: balance;
+        }
+
+        & p{
+          padding-inline-end: calc(14rem + 10vw);
+          padding-block: $fs-20 $fs-32;
+        }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .hero-content{
+     padding-inline-start: 10.3125rem;
+        & p{
+          padding-inline-end: 55%;
+          padding-block: $fs-40 3rem;
+        }
+    }
+
+    .hero-img{
+      background: url('../ASSETS/Images/desktop/image-hero.jpg') no-repeat center right;
+      background-size: contain;
+      height: 100%;
+    }
+  }
+}
+
+//design-section
+.design-header{
+  position: relative;
+}
+
+.wave-red{
+  position: absolute;
+  left: $fs-24;
+  top: 11.5625rem;
+}
+
+.header-content{
+  padding: 4.5rem $fs-24;
+    & p{
+      padding-block: $fs-24 $fs-40;
+    }
+}
+
+.design-content{
+  padding: 6rem $fs-40;
+
+    & h2{
+      color: $white;
+      text-wrap: stable;
+    }
+
+    .block-text{
+      padding-block-start: 5.8125rem;
+        & h3{
+          position: relative;
+            //Big number behind h3
+            &::before{
+              content: '01';
+              position: absolute;
+              top: -60%;
+              left: -$fs-16;
+              font-size: 5rem;
+              color: $white;
+              opacity: 0.3;
+            }
+        }
+
+        & div:nth-child(2) h3::before{
+          content: '02';
+        }
+
+        & div:nth-child(3) h3::before{
+          content: '03';
+        }
+
+        & p{
+          margin-block-start: $fs-15;
+        }
+
+        & div:not(:last-child){
+          margin-block-end: 5.25rem;
+        }
+    }
+}
+
+@media (min-width: 767px) {
+  .design-header{
+    @include flex-row;
+    align-items: start;
+    justify-content: end;
+    .header-content{
+      padding: 7.5rem $fs-40 7.5rem 4.375rem;
+      max-width: 50%;
+        & p{
+          padding-block: $fs-24 $fs-40;
+        }
+    }
+
+    .header-img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+    }
+
+    .wave-red{
+      left: calc(45vw + 2vw);
+      top: 25%;
+    }
+  }
+
+  .design-content{
+    @include flex-row;
+    align-items: start;
+    background: none;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    padding-inline-start: $fs-40;
+      .block-text{
+        background-color: $red;
+        padding: 10.25rem $fs-40 7.5rem 3.75rem;
+      }
+
+      & h2{
+        color: $bg-black;
+        padding-block-start: 30%;
+      }
+  }
+}
+
+@media (min-width: 1200px) {
+  .design-header{
+    .header-content{
+      padding: 12.5rem 6.625rem 12.5rem 9.625rem;
+        & p{
+          padding-block: $fs-40 3rem;
+        }
+    }
+
+    .wave-red{
+      top:30%;
+    }
+  }
+
+  .design-content{
+    .block-text{
+      background-color: $red;
+      padding: 15.25rem 6.625rem 12.5rem 21.5rem;
+    }
+
+    & h2{
+      transform: translateX(7.8125rem);
+    }
+  }
+}
+
+
+//Slider section
+.slider-section{
+  @include flex-column;
+  flex-direction: column-reverse;
+  align-items: stretch;
+    
+    //Box of slide-img
+    .slider-img{
+      @include flex-row;
+      position: relative;
+      overflow: hidden;
+      height: calc(25.25rem);
+      width: 100%;
+    }
+
+    //Box of slider-text
+    .box-text{
+      @include flex-column;
+      align-items: start;
+      padding-block: 4rem;
+      padding-inline: $fs-24;
+      gap: 1rem;
+
+        //top container of each slide-text
+        .slider-container{
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          position: relative;
+            & > :first-child{
+              position: relative;
+              @include flex-row;
+              justify-content: stretch;
+              align-items: stretch;
+            }
+        }
+
+        //container of btn group who controls image and text slider
+        .slider-btn{
+          @include flex-row;
+          gap: $fs-16;
+          cursor: pointer;
+           & svg > *{
+            transition: all 0.2s linear;
+           }
+
+           & svg:hover > *{
+            stroke: $red-opacity;
+           }
+        }
+    }
+
+    //each image and text slide
+    .slide-img,
+    .slide-text{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: translateX(0);
+      inset: 0;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    //container of text above each image slide (bottom-right side)
+    .info-img{
+      position: absolute;
+      z-index: 2;
+      right: $fs-32;
+      bottom: 2.1875rem;
+      text-align: right;
+        & > span{
+          display: block;
+        }
+    }
+
+
+    //First img
+    .slide-img:nth-child(1),
+    .slide-text:nth-child(1){
+      left: 0;
+    }
+
+    //second img
+    .slide-img:nth-child(2),
+    .slide-text:nth-child(2){
+      left: 100%;
+    }
+
+    //third img
+    .slide-img:nth-child(3),
+    .slide-text:nth-child(3){
+      left: 200%;
+    }
+
+    //layer of black opacity above every image
+    .slide-img::after{
+      content: '';
+      inset: 70% 0 0 0;
+      position: fixed;
+      background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%); 
+    }
+
+    @media (min-width: 767px) {
+      &{
+        @include flex-row;
+        align-items: start;
+        justify-content: start;
+        position: relative;
+        height: 29.5rem;
+      }
+
+      .slider-img{
+        position: absolute;
+        width: 27.375rem;
+        height: 29.5rem ;
+        top: 0;
+        right: 0;
+        z-index: 0;
+      }
+
+      .info-img{
+        right: $fs-40;
+        bottom: 2.8125rem;
+      }
+
+      .box-text{
+        position: relative;
+        z-index: 1;
+        padding-block: 6.25rem;
+        padding-inline: $fs-40 4.375rem;
+        gap: $fs-32;
+        min-width: 50%;
+  
+          //top container of each slide-text
+          .slider-container{
+            height: calc(4rem + 2vh);
+            & h2 span{
+              display: block;
+            }
+          }
+      }
+
+      #wave-white{
+        position: absolute;
+        top: 7.875rem;
+        left: 22.5rem;
+        z-index: 5;
+      }
+    }
+
+    //Some adjustment for big tablet size
+    @media (min-width: 1024px) {
+
+      .wave-red{
+        left: calc(50vw + 2vw);
+        top: 25%;
+      }
+
+      #wave-white{
+        left: 48%;
+        top: 20%;
+      }
+
+      .box-text{
+        max-width: calc(40rem + 1vw);
+        .slider-container{
+          height: calc(8rem + 1vh);
+        }
+      }
+
+      .slider-img{
+        width: 35.9375rem;
+        height: 100%;
+      }
+    }
+
+    @media (min-width: 1200px) {
+        &{
+          height: 45.5rem;
+        }
+
+        .slider-img{
+          width: 55.9375rem;
+          height: 100%;
+        }
+
+        .info-img{
+          right: 9.625rem;
+          bottom: 4.25rem;
+        }
+
+        #wave-white{
+          left: 45%;
+        }
+
+        .box-text{
+          padding-block: 9.5rem;
+          padding-inline: 10.3125rem 7.8125rem;
+          gap: 3.125rem;
+          max-width: 50%;
+          .slider-container{
+            height: calc(8.3125rem + 1vh);
+          }
+        }
+      }
+}
+
+//Footer
+.footer-container{
+  padding: 6.25rem $fs-24;
+  position: relative;
+  overflow: hidden;
+   & button{
+    margin-block-start: 2.9375rem;
+   }
+
+   @media (min-width: 767px) {
+    padding: 4.375em $fs-40 6.25rem;
+    @include flex-row-between;
+
+    & h2{
+      max-width: 60%;
+    }
+
+    & button{
+      margin-block-start: 0;
+     }
+   }
+
+   @media (min-width: 1024px) {
+    padding: 7.5rem 10.3125rem 7.1875rem;
+      .wave-red{
+        position: absolute;
+        left: -3vw;
+        top: 40%;
+      }
+   }
+}

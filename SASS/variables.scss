@@ -1,0 +1,360 @@
+//Tipography
+@font-face{
+  font-family: 'Commissioner';
+  font-weight: 400;
+  src: local('Commissioner Regular'),
+       url('../ASSETS/Fonts/Commissioner-Regular.woff2') format('woff2'),
+       url('../ASSETS/Fonts/Commissioner-Regular.woff') format('woff');
+}
+
+@font-face{
+  font-family: 'Commissioner';
+  font-weight: 600;
+  src: local('Commissioner Bold'),
+       url('../ASSETS/Fonts/Commissioner-Bold.woff2') format('woff2'),
+       url('../ASSETS/Fonts/Commissioner-Bold.woff') format('woff');
+}
+
+@font-face{
+  font-family: 'Commissioner';
+  font-weight: 800;
+  src: local('Commissioner ExtraBold'),
+       url('../ASSETS/Fonts/Commissioner-ExtraBold.woff2') format('woff2'),
+       url('../ASSETS/Fonts/Commissioner-ExtraBold.woff') format('woff');
+}
+
+$fw-reg: 400;
+$fw-bld: 600;
+$fw-x-bld: 800;
+
+$fs-15: 0.9375rem;
+$fs-16: 1rem;
+$fs-18: 1.125rem;
+$fs-20: 1.25rem;
+$fs-24: 1.5rem;
+$fs-32: 2rem;
+$fs-40: 2.5rem;
+$fs-56: 3.5rem;
+$fs-80: 5rem;
+
+//Colors
+$white: #FFFFFF;
+$bg-black: #000000;
+$txt-black: #191921;
+$bg-black-hover: #434356;
+$red: #F94F4F;
+$red-opacity: #FF9393;
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd,ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+button{
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  transition: all 0.2s linear;
+    &:hover{
+      opacity: 0.7;
+    }
+    @media screen and (min-width: 1024px) {
+      cursor: pointer;
+    }
+}
+
+.cta-header:hover{
+  background-color: $bg-black-hover;
+  opacity: 1;
+}
+
+.cta-no-bg:hover{
+  opacity: 1;
+  color: $red-opacity;
+  border-color: $red-opacity;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  /* overflow-y: hidden; */
+  position: relative;
+  font-family: 'Commissioner', sans-serif;
+  background-color: $white;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+picture img{
+  width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+//Utilities and mixins
+.bg-black{
+  background-color: $bg-black;
+}
+
+.bg-white{
+  background-color: $white;
+}
+
+.bg-red{
+  background-color: $red;
+}
+
+.txt-white{
+  color: $white;
+}
+
+.txt-black{
+  color: $txt-black;
+}
+
+.txt-red{
+  color: $red;
+}
+
+.fw-reg{
+  font-weight: 400;
+}
+
+.fw-x-bld{
+  font-weight: 800;
+}
+
+@mixin flex-column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column-start{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+@mixin flex-row{
+  @include flex-column;
+  flex-direction: row;
+}
+
+@mixin flex-row-between{
+  @include flex-column;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+//Block element
+//CTA with black bg in Header
+@mixin cta-bg-black-header{
+  background-color: $bg-black;
+  color: $white;
+  font-weight: $fw-x-bld;
+  font-size: $fs-16;
+  padding: 1.375rem $fs-18;
+    @media (min-width: 900px) {
+      padding-inline: 2.75rem;
+    }
+}
+
+//CTA in hero-section
+@mixin cta-bg-red-hero{
+  @include cta-bg-black-header;
+  background-color: $red;
+  font-size: $fs-18;
+  padding: 1.5rem $fs-40;
+}
+
+//CTA in last section (footer), this is also size for CTA in menu mobile (red bg)
+@mixin cta-bg-red-footer{
+  @include cta-bg-red-hero;
+  padding: 1.375rem 2.75rem;
+}
+
+//CTA with no bg in second section (after hero-section)
+@mixin cta-no-bg{
+  background-color: none;
+  color: $red;
+  font-weight: $fw-x-bld;
+  font-size: $fs-15;
+  padding-block-end: 0.5625rem;
+  border-bottom: 2px solid $red;
+  @media (min-width: 900px) {
+    font-size: $fs-18;
+  }
+}
+
+.cta-hero{
+  @include cta-bg-red-hero;
+}
+
+.cta-bg-red{
+  @include cta-bg-red-footer;
+}
+
+.cta-no-bg{
+  @include cta-no-bg;
+}
+
+.cta-header{
+  @include cta-bg-black-header;
+    @media (max-width: 767px) {
+      background-color: $red;
+      padding-inline: 2.75rem;
+    }
+}
+
+//Icon's menu mobile
+@media (min-width: 767px) {
+  .icon-box{
+    display: none;
+  }
+}
+.icon-box{
+  #cross{
+    display: none;
+  }
+}
+
+.red-section{
+  display: none;
+}
+
+h1{
+  font-size: $fs-40;
+    @media (min-width: 767px) {
+      font-size: $fs-56;
+    }
+
+    @media (min-width: 900px) {
+      font-size: $fs-80;
+    }
+}
+
+h2{
+  font-size: clamp(2rem, -6.6504rem + 18.0451vw, 3.5rem);
+  line-height: $fs-40;
+  @media (min-width: 900px) {
+    line-height: 4rem;
+  }
+}
+
+h3{
+  font-size: clamp(0.9375rem, -0.8647rem + 3.7594vw, 1.25rem);
+  line-height: $fs-24;
+  @media (min-width: 900px) {
+    line-height: $fs-32;
+  }
+}
+
+.body{
+  font-size: clamp(0.9375rem, -0.1438rem + 2.2556vw, 1.125rem);
+  line-height: $fs-24;
+    @media (min-width: 900px) {
+      line-height: $fs-32;
+    }
+}
+
+.hero-img{
+  background: url('../ASSETS/Images/mobile/image-hero.jpg') no-repeat center center;
+  background-size: cover;
+  height: 12.5rem;
+}
+
+//Wave svg
+@media (max-width: 767px) {
+  #wave-white{
+    display: none;
+  }
+}
+
+@media (min-width: 767px) {
+  .wave{
+    width: 3.9375rem;
+    height: 1.875rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wave{
+    width: 6.375rem;
+    height: 2.75rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .wave{
+    width: 3.9375rem;
+  }
+
+  .footer-container .wave{
+    display: none;
+  }
+}

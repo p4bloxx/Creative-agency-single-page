@@ -1,0 +1,313 @@
+@font-face {
+  font-family: "Commissioner";
+  font-weight: 400;
+  src: local("Commissioner Regular"), url("../ASSETS/Fonts/Commissioner-Regular.woff2") format("woff2"), url("../ASSETS/Fonts/Commissioner-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Commissioner";
+  font-weight: 600;
+  src: local("Commissioner Bold"), url("../ASSETS/Fonts/Commissioner-Bold.woff2") format("woff2"), url("../ASSETS/Fonts/Commissioner-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Commissioner";
+  font-weight: 800;
+  src: local("Commissioner ExtraBold"), url("../ASSETS/Fonts/Commissioner-ExtraBold.woff2") format("woff2"), url("../ASSETS/Fonts/Commissioner-ExtraBold.woff") format("woff");
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd, ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  transition: all 0.2s linear;
+}
+button:hover {
+  opacity: 0.7;
+}
+@media screen and (min-width: 1024px) {
+  button {
+    cursor: pointer;
+  }
+}
+
+.cta-header:hover {
+  background-color: #434356;
+  opacity: 1;
+}
+
+.cta-no-bg:hover {
+  opacity: 1;
+  color: #FF9393;
+  border-color: #FF9393;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  /* overflow-y: hidden; */
+  position: relative;
+  font-family: "Commissioner", sans-serif;
+  background-color: #FFFFFF;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+picture img {
+  width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.bg-white {
+  background-color: #FFFFFF;
+}
+
+.bg-red {
+  background-color: #F94F4F;
+}
+
+.txt-white {
+  color: #FFFFFF;
+}
+
+.txt-black {
+  color: #191921;
+}
+
+.txt-red {
+  color: #F94F4F;
+}
+
+.fw-reg {
+  font-weight: 400;
+}
+
+.fw-x-bld {
+  font-weight: 800;
+}
+
+.cta-hero {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 1.375rem 1.125rem;
+  background-color: #F94F4F;
+  font-size: 1.125rem;
+  padding: 1.5rem 2.5rem;
+}
+@media (min-width: 900px) {
+  .cta-hero {
+    padding-inline: 2.75rem;
+  }
+}
+
+.cta-bg-red {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 1.375rem 1.125rem;
+  background-color: #F94F4F;
+  font-size: 1.125rem;
+  padding: 1.5rem 2.5rem;
+  padding: 1.375rem 2.75rem;
+}
+@media (min-width: 900px) {
+  .cta-bg-red {
+    padding-inline: 2.75rem;
+  }
+}
+
+.cta-no-bg {
+  background-color: none;
+  color: #F94F4F;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  padding-block-end: 0.5625rem;
+  border-bottom: 2px solid #F94F4F;
+}
+@media (min-width: 900px) {
+  .cta-no-bg {
+    font-size: 1.125rem;
+  }
+}
+
+.cta-header {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 1.375rem 1.125rem;
+}
+@media (min-width: 900px) {
+  .cta-header {
+    padding-inline: 2.75rem;
+  }
+}
+@media (max-width: 767px) {
+  .cta-header {
+    background-color: #F94F4F;
+    padding-inline: 2.75rem;
+  }
+}
+
+@media (min-width: 767px) {
+  .icon-box {
+    display: none;
+  }
+}
+.icon-box #cross {
+  display: none;
+}
+
+.red-section {
+  display: none;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+@media (min-width: 767px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+}
+@media (min-width: 900px) {
+  h1 {
+    font-size: 5rem;
+  }
+}
+
+h2 {
+  font-size: clamp(2rem, -6.6504rem + 18.0451vw, 3.5rem);
+  line-height: 2.5rem;
+}
+@media (min-width: 900px) {
+  h2 {
+    line-height: 4rem;
+  }
+}
+
+h3 {
+  font-size: clamp(0.9375rem, -0.8647rem + 3.7594vw, 1.25rem);
+  line-height: 1.5rem;
+}
+@media (min-width: 900px) {
+  h3 {
+    line-height: 2rem;
+  }
+}
+
+.body {
+  font-size: clamp(0.9375rem, -0.1438rem + 2.2556vw, 1.125rem);
+  line-height: 1.5rem;
+}
+@media (min-width: 900px) {
+  .body {
+    line-height: 2rem;
+  }
+}
+
+.hero-img {
+  background: url("../ASSETS/Images/mobile/image-hero.jpg") no-repeat center center;
+  background-size: cover;
+  height: 12.5rem;
+}
+
+@media (max-width: 767px) {
+  #wave-white {
+    display: none;
+  }
+}
+@media (min-width: 767px) {
+  .wave {
+    width: 3.9375rem;
+    height: 1.875rem;
+  }
+}
+@media (min-width: 1200px) {
+  .wave {
+    width: 6.375rem;
+    height: 2.75rem;
+  }
+}
+@media (max-width: 1023px) {
+  .wave {
+    width: 3.9375rem;
+  }
+  .footer-container .wave {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=variables.css.map */
