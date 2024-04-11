@@ -48,26 +48,24 @@ button {
   display: block;
   transition: all 0.2s linear;
 }
-button:hover {
-  opacity: 0.7;
-}
+
 @media screen and (min-width: 1024px) {
   button {
     cursor: pointer;
   }
+  button:hover {
+    opacity: 0.7;
+  }
+  .cta-header:hover {
+    background-color: #434356;
+    opacity: 1;
+  }
+  .cta-no-bg:hover {
+    opacity: 1;
+    color: #FF9393;
+    border-color: #FF9393;
+  }
 }
-
-.cta-header:hover {
-  background-color: #434356;
-  opacity: 1;
-}
-
-.cta-no-bg:hover {
-  opacity: 1;
-  color: #FF9393;
-  border-color: #FF9393;
-}
-
 /* Set core body defaults */
 body {
   min-height: 100vh;

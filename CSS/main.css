@@ -48,26 +48,24 @@ button {
   display: block;
   transition: all 0.2s linear;
 }
-button:hover {
-  opacity: 0.7;
-}
+
 @media screen and (min-width: 1024px) {
   button {
     cursor: pointer;
   }
+  button:hover {
+    opacity: 0.7;
+  }
+  .cta-header:hover {
+    background-color: #434356;
+    opacity: 1;
+  }
+  .cta-no-bg:hover {
+    opacity: 1;
+    color: #FF9393;
+    border-color: #FF9393;
+  }
 }
-
-.cta-header:hover {
-  background-color: #434356;
-  opacity: 1;
-}
-
-.cta-no-bg:hover {
-  opacity: 1;
-  color: #FF9393;
-  border-color: #FF9393;
-}
-
 /* Set core body defaults */
 body {
   min-height: 100vh;
@@ -457,17 +455,17 @@ h3 {
   position: relative;
 }
 
-.wave-red {
-  position: absolute;
-  left: 1.5rem;
-  top: 11.5625rem;
-}
-
 .header-content {
   padding: 4.5rem 1.5rem;
+  position: relative;
 }
 .header-content p {
   padding-block: 1.5rem 2.5rem;
+}
+.header-content .wave-red {
+  position: absolute;
+  left: 1.5rem;
+  top: -1rem;
 }
 
 .design-content {
@@ -521,6 +519,10 @@ h3 {
   }
   .design-header .header-content p {
     padding-block: 1.5rem 2.5rem;
+  }
+  .design-header .header-content .wave-red {
+    left: calc(-0.5rem - 2vw);
+    top: 30%;
   }
   .design-header .header-img {
     position: absolute;
@@ -639,7 +641,7 @@ h3 {
   height: 100%;
   transform: translateX(0);
   inset: 0;
-  transition: transform 0.3s ease-in-out;
+  transition: all 0.7s cubic-bezier(0.77, 0, 0.18, 1);
 }
 .slider-section .info-img {
   position: absolute;

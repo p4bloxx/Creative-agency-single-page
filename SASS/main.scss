@@ -149,16 +149,17 @@
   position: relative;
 }
 
-.wave-red{
-  position: absolute;
-  left: $fs-24;
-  top: 11.5625rem;
-}
-
 .header-content{
   padding: 4.5rem $fs-24;
+  position: relative;
     & p{
       padding-block: $fs-24 $fs-40;
+    }
+
+    .wave-red{
+      position: absolute;
+      left: $fs-24;
+      top: -1rem;
     }
 }
 
@@ -214,6 +215,11 @@
       max-width: 50%;
         & p{
           padding-block: $fs-24 $fs-40;
+        }
+
+        .wave-red{
+          left: calc(-0.5rem - 2vw);
+          top: 30%;
         }
     }
 
@@ -337,7 +343,7 @@
       height: 100%;
       transform: translateX(0);
       inset: 0;
-      transition: transform 0.3s ease-in-out;
+      transition: all 0.7s cubic-bezier(0.77,0,0.18,1);
     }
 
     //container of text above each image slide (bottom-right side)

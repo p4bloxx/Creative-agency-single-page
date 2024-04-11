@@ -31,6 +31,7 @@ const slideImg = document.querySelectorAll('.slide-img')
 
 let counter = 0;
 
+
 prevBtn.addEventListener('click', () => {
   counter--;
   slider();
@@ -42,6 +43,7 @@ document.addEventListener('keydown', (e) => {
     slider();
   }
 })
+
 
 nextBtn.addEventListener('click', () => {
   counter++;
@@ -55,47 +57,34 @@ document.addEventListener('keydown', (e) => {
   }
 })
 
-
 function slider(){
-  if(counter < allSlide.length - 1){
-    slideTxt.forEach((txt) => {
-      txt.style.transform = `translateX(-${counter * 100}%)`;
-    })
 
-    slideImg.forEach((img) => {
-      img.style.transform = `translateX(-${counter * 100}%)`;
-    })
+  if(counter < 2){
+    nextBtn.style.pointerEvents = 'auto'
+    nextBtn.style.opacity = '1'
+  }
+    else{
+      nextBtn.style.pointerEvents = 'none'
+      nextBtn.style.opacity = '0.5'
+    } 
+ 
+
+  if(counter > 0){
+    prevBtn.style.pointerEvents = 'auto'
+    prevBtn.style.opacity = '1'
+  } else{
+    prevBtn.style.pointerEvents = 'none'
+    prevBtn.style.opacity = '0.5'
   }
 
-  if(counter == 3){
-    counter = 0;
-    slideTxt.forEach((txt) => {
-      txt.style.transform = `translateX(${counter * 100}%)`;
-    })
+  slideTxt.forEach((txt) => {
+    txt.style.transform = `translateX(-${counter * 100}%)`;
+  })
 
-    slideImg.forEach((img) => {
-      img.style.transform = `translateX(${counter * 100}%)`;
-    })
-  }
-
-  if(counter < 0){
-    slideTxt.forEach((txt) => {
-      txt.style.transform = `translateX(${counter * 100}%)`;
-    })
-
-    slideImg.forEach((img) => {
-      img.style.transform = `translateX(${counter * 100}%)`;
-    })
-
-    if(counter == -3){
-      counter = 0;
-      slideTxt.forEach((txt) => {
-        txt.style.transform = `translateX(${counter * 100}%)`;
-      })
-  
-      slideImg.forEach((img) => {
-        img.style.transform = `translateX(${counter * 100}%)`;
-      })
-    }
-  }
+  slideImg.forEach((img) => {
+    img.style.transform = `translateX(-${counter * 100}%)`;
+  })  
 }
+
+prevBtn.style.pointerEvents = 'none';
+prevBtn.style.opacity = '0.5';

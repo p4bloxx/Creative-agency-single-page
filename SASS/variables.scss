@@ -79,23 +79,26 @@ button{
   padding: 0;
   display: block;
   transition: all 0.2s linear;
+}
+
+@media screen and (min-width: 1024px) {
+  button{
+    cursor: pointer;
     &:hover{
       opacity: 0.7;
     }
-    @media screen and (min-width: 1024px) {
-      cursor: pointer;
-    }
-}
+  }
 
-.cta-header:hover{
-  background-color: $bg-black-hover;
-  opacity: 1;
-}
-
-.cta-no-bg:hover{
-  opacity: 1;
-  color: $red-opacity;
-  border-color: $red-opacity;
+  .cta-header:hover{
+    background-color: $bg-black-hover;
+    opacity: 1;
+  }
+  
+  .cta-no-bg:hover{
+    opacity: 1;
+    color: $red-opacity;
+    border-color: $red-opacity;
+  }
 }
 
 /* Set core body defaults */
