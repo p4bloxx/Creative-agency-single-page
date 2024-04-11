@@ -1,17 +1,30 @@
-@font-face {
-  font-family: "Commissioner";
+/* @font-face{
+  font-family: 'Commissioner';
   font-weight: 400;
-  src: local("Commissioner Regular"), url("../ASSETS/Fonts/Commissioner-Regular.woff2") format("woff2"), url("../ASSETS/Fonts/Commissioner-Regular.woff") format("woff");
+  src: local('Commissioner Regular'),
+       url('../ASSETS/Fonts/Commissioner-Regular.woff2') format('woff2'),
+       url('../ASSETS/Fonts/Commissioner-Regular.woff') format('woff');
 }
-@font-face {
-  font-family: "Commissioner";
+
+@font-face{
+  font-family: 'Commissioner';
   font-weight: 600;
-  src: local("Commissioner Bold"), url("../ASSETS/Fonts/Commissioner-Bold.woff2") format("woff2"), url("../ASSETS/Fonts/Commissioner-Bold.woff") format("woff");
+  src: local('Commissioner Bold'),
+       url('../ASSETS/Fonts/Commissioner-Bold.woff2') format('woff2'),
+       url('../ASSETS/Fonts/Commissioner-Bold.woff') format('woff');
 }
+
+@font-face{
+  font-family: 'Commissioner';
+  font-weight: 800;
+  src: local('Commissioner ExtraBold'),
+       url('../ASSETS/Fonts/Commissioner-ExtraBold.woff2') format('woff2'),
+       url('../ASSETS/Fonts/Commissioner-ExtraBold.woff') format('woff');
+} */
 @font-face {
   font-family: "Commissioner";
-  font-weight: 800;
-  src: local("Commissioner ExtraBold"), url("../ASSETS/Fonts/Commissioner-ExtraBold.woff2") format("woff2"), url("../ASSETS/Fonts/Commissioner-ExtraBold.woff") format("woff");
+  font-weight: 100 900;
+  src: url("../ASSETS/Fonts/Commissioner-VariableFont_FLAR,VOLM,slnt,wght.woff2") format("woff");
 }
 /* Box sizing rules */
 *,

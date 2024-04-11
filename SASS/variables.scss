@@ -1,5 +1,5 @@
 //Tipography
-@font-face{
+/* @font-face{
   font-family: 'Commissioner';
   font-weight: 400;
   src: local('Commissioner Regular'),
@@ -21,6 +21,12 @@
   src: local('Commissioner ExtraBold'),
        url('../ASSETS/Fonts/Commissioner-ExtraBold.woff2') format('woff2'),
        url('../ASSETS/Fonts/Commissioner-ExtraBold.woff') format('woff');
+} */
+
+@font-face{
+  font-family: 'Commissioner';
+  font-weight: 100 900;
+  src: url('../ASSETS/Fonts/Commissioner-VariableFont_FLAR\,VOLM\,slnt\,wght.woff2') format('woff');
 }
 
 $fw-reg: 400;
